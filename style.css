@@ -1,27 +1,40 @@
 #score {
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 24px;
 }
+
+#startButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 #game {
   width: 600px;
   height: 300px;
   border: 2px solid black;
-  margin: 50px auto;
+  margin: 20px auto;
   background-image: url("https://raw.githubusercontent.com/kriscfoster/chrome-dino-game/master/background.jpg");
   background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 }
+
 #eagle {
   height: 75px;
   width: 75px;
   top: 225px;
   left: 50px;
-  position: absolute; 
+  position: absolute;
   background-image: url("https://raw.githubusercontent.com/kriscfoster/chrome-dino-game/master/dino.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
 #rock {
   width: 50px;
   height: 50px;
@@ -30,20 +43,51 @@
   left: 550px;
   background-image: url("https://raw.githubusercontent.com/kriscfoster/chrome-dino-game/master/rock.png");
   background-size: cover;
-  animation: rock-move 1.33s infinite linear;
+  background-repeat: no-repeat;
+  animation: none;
 }
+
 @keyframes rock-move {
-  0% { left: 600px; }
-  100% { left: -50px; }
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -50px;
+  }
 }
+
 .jump-animation {
-  /* Sprungzeit auf 1.0s laut Aufgabe */animation: jump-frames 1.0s linear;
+  animation: jump-frames 1s linear;
 }
 
 @keyframes jump-frames {
-  0% { top: 225px; }
-  30% { top: 100px; }
-  70% { top: 100px; }
-  100% { top: 225px; }
+  0% {
+    top: 225px;
+  }
+  30% {
+    top: 100px;
+  }
+  70% {
+    top: 100px;
+  }
+  100% {
+    top: 225px;
+  }
 }
- 
+
+/* Explosion */
+#explosion {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  display: none;
+  background-image: url("https://media.giphy.com/media/oe33xf3B50fsc/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.explosion-show {
+  display: block;
+}
